@@ -21,7 +21,6 @@ wait = {
     'readMember':{},
     'setTime':{},
     'ROM':{},
-    'ProtectQR':False
 }
 
 setTime = {}
@@ -67,59 +66,13 @@ tracer.addOpInterrupt(55, NOTIFIED_READ_MESSAGE)
 
 def NOTIFIED_ACCEPT_GROUP_INVITATION(op):
     try:
-        sendMessage(op.param1, client.getContact(op.param2).displayName + ", Selamat Datang")
+        sendMessage(op.param1, client.getContact(op.param2).displayName + ", Selamat Datang salken ya")
     except Exception as e:
         print e
         print ("\n\nNOTIFIED_ACCEPT_GROUP_INVITATION\n\n")
         return
 
 tracer.addOpInterrupt(17,NOTIFIED_ACCEPT_GROUP_INVITATION)
-
-def NOTIFIED_KICKOUT_FROM_GROUP(op):
-    try:
-				client.kickoutFromGroup(op.param1,[op.param2])
-				client.inviteIntoGroup(op.param1,[op.param3])
-				sendMessage(op.param1, client.getContact(op.param2).displayName + ", Kikil ya kamu ?")				
-    except Exception as e:
-        print e
-        print ("\n\nNOTIFIED_KICKOUT_FROM_GROUP\n\n")
-        return
-
-tracer.addOpInterrupt(19,NOTIFIED_KICKOUT_FROM_GROUP)
-
-
-def NOTIFIED_UPDATE_GROUP(op):
-    try:
-                sendMessage(op.param1, client.getContact(op.param2).displayName + ", Jangan Dimainin QR-nya :3\nSaya Kick ya")
-                client.kickoutFromGroup(op.param1,[op.param2])
-    except Exception as e:
-        print e
-        print ("\n\nNOTIFIED_UPDATE_GROUP\n\n")
-        return
-
-tracer.addOpInterrupt(11,NOTIFIED_UPDATE_GROUP)
-
-def NOTIFIED_CANCEL_INVITATION_GROUP(op):
-    try:
-                sendMessage(op.param1, client.getContact(op.param2).displayName + ", Kenapa dibatalin?\nkikil ya kamu ?")
-                client.kickoutFromGroup(op.param1,[op.param2])
-                client.inviteIntoGroup(op.param1,[op.param3])
-    except Exception as e:
-        print e
-        print ("\n\nNOTIFIED_CANCEL_INVITATION_GROUP\n\n")
-        return
-
-tracer.addOpInterrupt(32,NOTIFIED_CANCEL_INVITATION_GROUP)
-
-def CANCEL_INVITATION_GROUP(op):
-    try:
-        client.cancelGroupInvitation(op.param1,[op.param3])
-    except Exception as e:
-        print e
-        print ("\n\nCANCEL_INVITATION_GROUP\n\n")
-        return
-
-tracer.addOpInterrupt(31,CANCEL_INVITATION_GROUP)
 
 def RECEIVE_MESSAGE(op):
     msg = op.message
@@ -315,7 +268,7 @@ def SEND_MESSAGE(op):
                                 print rom
                                 chiya += rom[1] + "\n"
 
-                        sendMessage(msg.to, "Yang nyimak/cctv %s\n------------------------\n\n saat tdk ada\n%s--------------------♪\n\nReading point creation date n time:\n[%s]"  % (wait['readMember'][msg.to],chiya,setTime[msg.to]))
+                        sendMessage(msg.to, "Yang nyimak/cctv %s\n------------------------\n\n yg batalin baca\n%s--------------------♪\n\nReading point creation date n time:\n[%s]"  % (wait['readMember'][msg.to],chiya,setTime[msg.to]))
                     else:
                         sendMessage(msg.to, "Read point belum di set.\n「mj」ketikan itu ♪ read point akan dibuat ♪")
                 else:
