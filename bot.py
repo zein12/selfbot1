@@ -64,16 +64,6 @@ def NOTIFIED_READ_MESSAGE(op):
 
 tracer.addOpInterrupt(55, NOTIFIED_READ_MESSAGE)
 
-def NOTIFIED_ACCEPT_GROUP_INVITATION(op):
-    try:
-        sendMessage(op.param1, client.getContact(op.param2).displayName + ", Selamat Datang salken ya")
-    except Exception as e:
-        print e
-        print ("\n\nNOTIFIED_ACCEPT_GROUP_INVITATION\n\n")
-        return
-
-tracer.addOpInterrupt(17,NOTIFIED_ACCEPT_GROUP_INVITATION)
-
 def RECEIVE_MESSAGE(op):
     msg = op.message
     try:
