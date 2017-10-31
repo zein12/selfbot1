@@ -1,2 +1,2 @@
-Gabungan dari Botprotect, botkick dan lain nya.
+Selfbot.
 Created by MJ
