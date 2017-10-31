@@ -206,7 +206,7 @@ def SEND_MESSAGE(op):
                     sendMessage(msg.to,"MJ")
 		    sendMessage(msg.to,"MJ")
 		    sendMessage(msg.to,"MJ")
-		elif msg.text in [tagmember]:
+		elif msg.text == "tagmember":
                   group = cl.getGroup(msg.to)
                   nama = [contact.mid for contact in group.members]
 
